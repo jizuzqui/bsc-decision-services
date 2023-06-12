@@ -92,6 +92,40 @@
           <dmn:text/>
         </dmn:annotationEntry>
       </dmn:rule>
+      <dmn:rule id="_AF6EFFE1-C011-410C-94F6-DA24C68B49E0">
+        <dmn:inputEntry id="_E98A57B0-6540-42FC-B512-A5F6596EC4B9">
+          <dmn:text>"Presidente ejecutivo"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_35C076D1-0AD4-4AC0-9AFA-6C45801B74F3">
+          <dmn:text>"Comercial"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E6FDD788-5B95-429D-8A3B-13DAB208163D">
+          <dmn:text>10000000</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_26A0008D-7585-4493-B2C1-3D5FB724B43A">
+          <dmn:text>999999999</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_B7741C41-39AC-46F1-B7B7-39BA7ED47E2E">
+        <dmn:inputEntry id="_DBC02B21-C554-4F1C-9446-0EF9AC6D91FF">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_731D235C-44AB-412F-9137-E27631A857AC">
+          <dmn:text>-</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_D007616F-23DE-4032-BE34-AEA810C174A1">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_EA1B240C-B4AC-445D-A7DD-6FEA5EDA0EC1">
+          <dmn:text/>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
     </dmn:decisionTable>
   </dmn:decision>
   <dmn:decision id="_313F659F-9BD9-47D0-9066-E01A7C96DAC8" name="Aprobacion de credito">
@@ -117,10 +151,10 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_020D55B8-38AC-402A-B6B6-81BBC298F620">
             <kie:width>50</kie:width>
-            <kie:width>354</kie:width>
+            <kie:width>532</kie:width>
             <kie:width>306</kie:width>
-            <kie:width>227</kie:width>
-            <kie:width>259</kie:width>
+            <kie:width>132</kie:width>
+            <kie:width>148</kie:width>
             <kie:width>432</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_EFE27C35-5865-4C23-A2C2-CB1AB1DFB368">
