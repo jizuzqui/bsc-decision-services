@@ -30,22 +30,9 @@
 	</distributionManagement>
   <dependencies>
     <dependency>
-      <groupId>do.bsc.architecture</groupId>
-      <artifactId>bsc-dmn-event-listener-elasticsearch</artifactId>
-      <version>1.0.0</version>
-    </dependency>
-    <dependency>
       <groupId>do.bsc.decisions</groupId>
       <artifactId>bsc-decision-services-dto</artifactId>
       <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-processes</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-svg</artifactId>
     </dependency>
     <dependency>
       <groupId>org.kie.kogito</groupId>
