@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_B5C477EA-6173-4CDE-BC7D-889B89595E84" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_5873FDE7-2624-4B4E-9EC5-26E8E6E039C4" name="Untitled" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_B5C477EA-6173-4CDE-BC7D-889B89595E84">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_C7440C97-8BD4-44A1-8E4C-0192A41169BF" name="tTipoAprobacion" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_B3BC65F8-934D-45FC-AEE6-A24872F04BC5">
+      <dmn:text>"AUTOMATICO", "DEP. CUMPLIMIENTO"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_15AE7083-B7E6-4C22-ABC3-1219B3B35996" name="Tipo aprobación">
+    <dmn:extensionElements/>
+    <dmn:variable id="_A779579C-0354-4F07-8DF2-8282C7603851" name="Tipo aprobación" typeRef="tTipoAprobacion"/>
+  </dmn:inputData>
+  <dmn:inputData id="_A3FAA86B-152C-478C-BD7A-A41B1BE3795F" name="Porcentaje coincidencia">
+    <dmn:extensionElements/>
+    <dmn:variable id="_7E9DCC57-6167-4AAB-9415-9DB19749E96D" name="Porcentaje coincidencia" typeRef="number"/>
+  </dmn:inputData>
+  <dmn:decision id="_0025B707-266E-4814-98CA-4F51CC033C09" name="Nivel aprobacion">
+    <dmn:extensionElements/>
+    <dmn:variable id="_AA41C4DC-6892-40C9-B767-617CF176AD1A" name="Nivel aprobacion" typeRef="string"/>
+    <dmn:informationRequirement id="_D8A2EF7C-9E0B-4469-A332-853BB86BFD5B">
+      <dmn:requiredInput href="#_15AE7083-B7E6-4C22-ABC3-1219B3B35996"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_2B14239B-D234-4381-A817-D52DF2A684E9">
+      <dmn:requiredInput href="#_A3FAA86B-152C-478C-BD7A-A41B1BE3795F"/>
+    </dmn:informationRequirement>
+    <dmn:decisionTable id="_EF35CAB2-F849-49C5-B312-E1A6AA394F01" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
+      <dmn:input id="_4E412DEC-471C-4008-993D-00D70548670B">
+        <dmn:inputExpression id="_4AAF03C4-1397-4B7A-BC15-CB8D94D79C14" typeRef="number">
+          <dmn:text>Porcentaje coincidencia</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:input id="_F32108E0-9103-4477-84A7-8EA8234B7FDF">
+        <dmn:inputExpression id="_8B4217BE-836B-47E7-B294-ED5375992983" typeRef="tTipoAprobacion">
+          <dmn:text>Tipo aprobación</dmn:text>
+        </dmn:inputExpression>
+      </dmn:input>
+      <dmn:output id="_CD197D0A-86ED-4F4B-8665-FC3A09621987"/>
+      <dmn:annotation name="Descripción"/>
+      <dmn:rule id="_91FF3D9C-3E83-492B-BC4B-6C6883712E84">
+        <dmn:inputEntry id="_AC4BB2A7-25E3-451E-94FF-399F53E6CFE6">
+          <dmn:text>&lt;=80</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_779B7909-957B-4A04-81F2-335BC08CF252">
+          <dmn:text>"AUTOMATICO"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_A7F8013B-84F8-4E23-896D-BC6013461C0D">
+          <dmn:text>"N/A"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_63E051A1-3AE0-48CB-87F7-67F46457AC8A">
+        <dmn:inputEntry id="_F89FAC39-86B8-46AA-A094-70CF33D23748">
+          <dmn:text>&gt;80</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_58D73124-681B-4591-BF79-14540EBF6082">
+          <dmn:text>"DEP. CUMPLIMIENTO"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_3025FF44-FEB7-4898-8BB4-AE4729C72DE7">
+          <dmn:text>"ANALISTA/SUBGERENTE DEBIDA DILIGENCIA"</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+    </dmn:decisionTable>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_ECB1A0CE-EFA4-43A4-980F-0247FD8E76F3" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_EF35CAB2-F849-49C5-B312-E1A6AA394F01">
+            <kie:width>50</kie:width>
+            <kie:width>247</kie:width>
+            <kie:width>297</kie:width>
+            <kie:width>281</kie:width>
+            <kie:width>374</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_15AE7083-B7E6-4C22-ABC3-1219B3B35996" dmnElementRef="_15AE7083-B7E6-4C22-ABC3-1219B3B35996" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="468" y="361" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_A3FAA86B-152C-478C-BD7A-A41B1BE3795F" dmnElementRef="_A3FAA86B-152C-478C-BD7A-A41B1BE3795F" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="695" y="361" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_0025B707-266E-4814-98CA-4F51CC033C09" dmnElementRef="_0025B707-266E-4814-98CA-4F51CC033C09" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="561" y="175" width="171" height="69"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_D8A2EF7C-9E0B-4469-A332-853BB86BFD5B-AUTO-TARGET" dmnElementRef="_D8A2EF7C-9E0B-4469-A332-853BB86BFD5B">
+        <di:waypoint x="518" y="386"/>
+        <di:waypoint x="646.5" y="175"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_2B14239B-D234-4381-A817-D52DF2A684E9-AUTO-TARGET" dmnElementRef="_2B14239B-D234-4381-A817-D52DF2A684E9">
+        <di:waypoint x="745" y="386"/>
+        <di:waypoint x="646.5" y="244"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
