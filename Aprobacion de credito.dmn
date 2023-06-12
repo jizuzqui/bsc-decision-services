@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/_0B9D66ED-0918-4466-A87F-C77785D24B64" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_25AAD3CF-53D4-41AB-B9B5-39D23EFAA9C7" name="Untitled" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/_0B9D66ED-0918-4466-A87F-C77785D24B64">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_F3CCB36D-6F7B-493B-AFCF-CB16250DB78C" name="tProducto" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_F94F3C3B-DE2C-4AF0-836A-ACA8B20E94FE">
+      <dmn:text>"Comercial", "Hipotecario", "Consumo con garantia", "Consumo sin garantia", "Tarjetas de credito"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:itemDefinition id="_629F20DB-B120-4FB7-A3EE-A3E3377A0CD1" name="tFuncionario" isCollection="false">
+    <dmn:typeRef>string</dmn:typeRef>
+    <dmn:allowedValues kie:constraintType="enumeration" id="_0AE15234-A6A3-41FC-A49F-A70B07D4F3C9">
+      <dmn:text>"Presidente ejecutivo", "VP Ejecutivo Negocios Banca Personas", "VP Operaciones", "2do VP Negocios Banca Personas", "2do VP Analisis de Credito Area de Operaciones", "Gerente Financiamiento Hipotecario", "Gerente Zona Mi Negocio"</dmn:text>
+    </dmn:allowedValues>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_46AF7675-3E88-430B-935E-F056CEE0644A" name="Funcionario">
+    <dmn:extensionElements/>
+    <dmn:variable id="_E8AE8CB4-E9C2-48E8-9110-C37B8A672193" name="Funcionario"/>
+  </dmn:inputData>
+  <dmn:inputData id="_D8F78EE8-4620-4871-A8A8-DE3DC5E3D47D" name="Producto">
+    <dmn:extensionElements/>
+    <dmn:variable id="_31C1D38D-0998-4B5A-BBF7-DBB14D860EBA" name="Producto"/>
+  </dmn:inputData>
+  <dmn:decision id="_B6EDFFEB-F908-4244-962A-0155317DB569" name="Decision-1">
+    <dmn:extensionElements/>
+    <dmn:variable id="_90633D1E-6096-4F54-8C36-05936F81FEA3" name="Decision-1"/>
+    <dmn:informationRequirement id="_F4B415F4-E959-479D-917D-A1971D076C09">
+      <dmn:requiredInput href="#_46AF7675-3E88-430B-935E-F056CEE0644A"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_6752C880-12B5-48CF-83B1-489CC523C408">
+      <dmn:requiredInput href="#_D8F78EE8-4620-4871-A8A8-DE3DC5E3D47D"/>
+    </dmn:informationRequirement>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_F2A921F1-9BFD-4C42-AE95-A2324290F2B5" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension/>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_46AF7675-3E88-430B-935E-F056CEE0644A" dmnElementRef="_46AF7675-3E88-430B-935E-F056CEE0644A" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="399" y="342" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_D8F78EE8-4620-4871-A8A8-DE3DC5E3D47D" dmnElementRef="_D8F78EE8-4620-4871-A8A8-DE3DC5E3D47D" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="558" y="342" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_B6EDFFEB-F908-4244-962A-0155317DB569" dmnElementRef="_B6EDFFEB-F908-4244-962A-0155317DB569" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="447.5" y="159" width="171" height="80"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_F4B415F4-E959-479D-917D-A1971D076C09-AUTO-SOURCE-AUTO-TARGET" dmnElementRef="_F4B415F4-E959-479D-917D-A1971D076C09">
+        <di:waypoint x="449" y="342"/>
+        <di:waypoint x="533" y="239"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="dmnedge-drg-_6752C880-12B5-48CF-83B1-489CC523C408" dmnElementRef="_6752C880-12B5-48CF-83B1-489CC523C408">
+        <di:waypoint x="608" y="367"/>
+        <di:waypoint x="533" y="239"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
