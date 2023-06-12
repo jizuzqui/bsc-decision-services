@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>do.bsc.architecture</groupId>
+    <artifactId>bsc-quarkus-kogito-architecture-parent</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>do.bsc.decisions</groupId>
+  <artifactId>bsc-decision-models</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <distributionManagement>
+		<!--
+		- The <repository> tag defines where release artifacts are pushed to as part of a 'mvn release:perform' command
+		-->
+		<repository>
+			<id>Nexus releases</id>
+			<name>Nexus releases</name>
+			<url>https://nexus-repository.eu.ngrok.io/nexus/repository/maven-releases/</url>
+		</repository>
+	
+		<!--
+		- The <snapshotRepository> tag defines where snapshot artifacts are deployed to as part of a 'mvn deploy' command.
+		-->
+		<snapshotRepository>
+			<id>Nexus snapshots</id>
+			<name>Nexus snapshots</name>
+			<url>https://nexus-repository.eu.ngrok.io/nexus/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+  <dependencies>
+    <dependency>
+      <groupId>do.bsc.architecture</groupId>
+      <artifactId>bsc-dmn-event-listener-elasticsearch</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>do.bsc.decisions</groupId>
+      <artifactId>bsc-decision-services-dto</artifactId>
+      <version>1.0.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-quarkus-processes</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-addons-quarkus-process-svg</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie.kogito</groupId>
+      <artifactId>kogito-quarkus-decisions</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-vertx</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <!--  REST client with Service Task to call DMN  -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jackson</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-arc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
