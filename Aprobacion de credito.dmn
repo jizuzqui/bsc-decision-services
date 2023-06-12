@@ -13,6 +13,14 @@
       <dmn:text>"Presidente ejecutivo", "VP Ejecutivo Negocios Banca Personas", "VP Operaciones", "2do VP Negocios Banca Personas", "2do VP Analisis de Credito Area de Operaciones", "Gerente Financiamiento Hipotecario", "Gerente Zona Mi Negocio"</dmn:text>
     </dmn:allowedValues>
   </dmn:itemDefinition>
+  <dmn:itemDefinition id="_D18D13DF-9FF2-44F8-9DF4-8CB24B23D02A" name="tNivelDecision" isCollection="false">
+    <dmn:itemComponent id="_0946F715-EC2F-4611-85F3-EAB5E0C1A3F6" name="Nivel minimo" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_E463634A-5D1F-4C81-BD5E-69509348AB8A" name="Nivel maximo" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
   <dmn:inputData id="_46AF7675-3E88-430B-935E-F056CEE0644A" name="Funcionario">
     <dmn:extensionElements/>
     <dmn:variable id="_E8AE8CB4-E9C2-48E8-9110-C37B8A672193" name="Funcionario" typeRef="tFuncionario"/>
@@ -21,9 +29,9 @@
     <dmn:extensionElements/>
     <dmn:variable id="_31C1D38D-0998-4B5A-BBF7-DBB14D860EBA" name="Producto" typeRef="tProducto"/>
   </dmn:inputData>
-  <dmn:decision id="_B6EDFFEB-F908-4244-962A-0155317DB569" name="Nivel de decision de funcionario">
+  <dmn:decision id="_B6EDFFEB-F908-4244-962A-0155317DB569" name="Nivel decision">
     <dmn:extensionElements/>
-    <dmn:variable id="_90633D1E-6096-4F54-8C36-05936F81FEA3" name="Nivel de decision de funcionario" typeRef="number"/>
+    <dmn:variable id="_90633D1E-6096-4F54-8C36-05936F81FEA3" name="Nivel decision" typeRef="tNivelDecision"/>
     <dmn:informationRequirement id="_F4B415F4-E959-479D-917D-A1971D076C09">
       <dmn:requiredInput href="#_46AF7675-3E88-430B-935E-F056CEE0644A"/>
     </dmn:informationRequirement>
@@ -31,27 +39,54 @@
       <dmn:requiredInput href="#_D8F78EE8-4620-4871-A8A8-DE3DC5E3D47D"/>
     </dmn:informationRequirement>
     <dmn:decisionTable id="_020D55B8-38AC-402A-B6B6-81BBC298F620" hitPolicy="UNIQUE" preferredOrientation="Rule-as-Row">
-      <dmn:input id="_2DA91C7B-F1A7-4EB1-8CE9-872AED20B7D8">
-        <dmn:inputExpression id="_558DB977-8933-42B6-8ED1-C27FCCEDB6D8" typeRef="tFuncionario">
+      <dmn:input id="_D1B34259-584B-4A99-9256-7FCD55446C54">
+        <dmn:inputExpression id="_BFDD7313-3733-45E0-A6EB-0B7EAEB50A22" typeRef="tFuncionario">
           <dmn:text>Funcionario</dmn:text>
         </dmn:inputExpression>
+        <dmn:inputValues kie:constraintType="enumeration" id="_E0BCB167-43D6-4133-8AC1-66F33BAB03F3">
+          <dmn:text>"Presidente ejecutivo", "VP Ejecutivo Negocios Banca Personas", "VP Operaciones", "2do VP Negocios Banca Personas", "2do VP Analisis de Credito Area de Operaciones", "Gerente Financiamiento Hipotecario", "Gerente Zona Mi Negocio"</dmn:text>
+        </dmn:inputValues>
       </dmn:input>
-      <dmn:input id="_D8184F6D-C181-494E-A185-91D849ED1635">
-        <dmn:inputExpression id="_2B685D99-1B9A-4A26-8BCF-1945A459C239" typeRef="tProducto">
+      <dmn:input id="_1341C690-BC37-477E-B278-44233017EE27">
+        <dmn:inputExpression id="_8B30FB3D-CB5D-4ECC-A430-F1EC37414738" typeRef="tProducto">
           <dmn:text>Producto</dmn:text>
         </dmn:inputExpression>
+        <dmn:inputValues kie:constraintType="enumeration" id="_F2CD3BF0-CB4C-42EF-B2D6-560FFDF9D734">
+          <dmn:text>"Comercial", "Hipotecario", "Consumo con garantia", "Consumo sin garantia", "Tarjetas de credito"</dmn:text>
+        </dmn:inputValues>
       </dmn:input>
-      <dmn:output id="_A899E49C-A5D2-4E14-88C1-C031D256A8CC"/>
+      <dmn:output id="_34254BCA-5249-486B-8F15-F68CD1917B7F" name="Nivel minimo" typeRef="number"/>
+      <dmn:output id="_FD6F81A7-CCBB-4E4A-A9B2-59EB5DBFA0E9" name="Nivel maximo" typeRef="number"/>
       <dmn:annotation name="annotation-1"/>
-      <dmn:rule id="_747AF26E-5264-44F7-A308-E0B9532DCB79">
-        <dmn:inputEntry id="_37B4C480-1B40-4C29-929F-8D0BB05869B0">
+      <dmn:rule id="_F172AF14-2D0A-45A1-B6A6-16D6FE670B01">
+        <dmn:inputEntry id="_3B68D945-A235-4D0F-B9B7-A2F1D1EF17D9">
           <dmn:text>"Presidente ejecutivo"</dmn:text>
         </dmn:inputEntry>
-        <dmn:inputEntry id="_17AF68AC-CED5-4CC8-B9D3-0BCE74332F38">
+        <dmn:inputEntry id="_7C26EFED-E936-4E6C-98B0-4702E18ACB1D">
           <dmn:text>"Comercial"</dmn:text>
         </dmn:inputEntry>
-        <dmn:outputEntry id="_A07DCB1D-4676-4F60-B9B4-FEFB943EA4F5">
-          <dmn:text>20</dmn:text>
+        <dmn:outputEntry id="_2B63E6D6-0198-4A26-B85E-0E5A7E5EA35A">
+          <dmn:text>20000000</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_2EC9CC8E-4F03-4583-831D-9797219BC88C">
+          <dmn:text>999999999</dmn:text>
+        </dmn:outputEntry>
+        <dmn:annotationEntry>
+          <dmn:text/>
+        </dmn:annotationEntry>
+      </dmn:rule>
+      <dmn:rule id="_48E82C23-8A8A-4EEC-87B7-63EC52FADB6F">
+        <dmn:inputEntry id="_5D946DB0-CC51-49FC-81EB-F19D047C2D05">
+          <dmn:text>"Presidente ejecutivo"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:inputEntry id="_FBF75173-3790-4523-AAAC-31BD87470918">
+          <dmn:text>"Hipotecario"</dmn:text>
+        </dmn:inputEntry>
+        <dmn:outputEntry id="_E1C52228-F134-4A33-86F6-36F5AD0EA2EB">
+          <dmn:text>15000000</dmn:text>
+        </dmn:outputEntry>
+        <dmn:outputEntry id="_F0827753-E50C-45C6-8FBF-080296F9CFEE">
+          <dmn:text>999999999</dmn:text>
         </dmn:outputEntry>
         <dmn:annotationEntry>
           <dmn:text/>
@@ -69,7 +104,7 @@
       <dmn:requiredDecision href="#_B6EDFFEB-F908-4244-962A-0155317DB569"/>
     </dmn:informationRequirement>
     <dmn:literalExpression id="_EFE27C35-5865-4C23-A2C2-CB1AB1DFB368">
-      <dmn:text>if Nivel de decision de funcionario &gt;= Credito then true else false</dmn:text>
+      <dmn:text>if Credito in ( [Nivel decision.Nivel minimo..Nivel decision.Nivel maximo] ) then true else false</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData id="_93B247EB-AD3D-4A65-A794-02837DBEB441" name="Credito">
@@ -82,10 +117,11 @@
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_020D55B8-38AC-402A-B6B6-81BBC298F620">
             <kie:width>50</kie:width>
+            <kie:width>354</kie:width>
+            <kie:width>306</kie:width>
+            <kie:width>227</kie:width>
             <kie:width>259</kie:width>
-            <kie:width>264</kie:width>
-            <kie:width>325</kie:width>
-            <kie:width>176</kie:width>
+            <kie:width>432</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_EFE27C35-5865-4C23-A2C2-CB1AB1DFB368">
             <kie:width>717</kie:width>
