@@ -69,7 +69,7 @@
       <dmn:requiredDecision href="#_B6EDFFEB-F908-4244-962A-0155317DB569"/>
     </dmn:informationRequirement>
     <dmn:literalExpression id="_EFE27C35-5865-4C23-A2C2-CB1AB1DFB368">
-      <dmn:text>if Nivel de decision de funcionario &gt;= Credito solicitado then true else false</dmn:text>
+      <dmn:text>if Nivel de decision de funcionario &gt;= Credito then true else false</dmn:text>
     </dmn:literalExpression>
   </dmn:decision>
   <dmn:inputData id="_93B247EB-AD3D-4A65-A794-02837DBEB441" name="Credito">
